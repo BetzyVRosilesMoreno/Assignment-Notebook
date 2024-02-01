@@ -13,7 +13,15 @@ struct ContentView: View {
         NavigationView {
             List {
                 ForEach(assignmentItems) { item in
-                    Text(item.description)
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text(item.priority)
+                                .font(.headline)
+                            Text(item.description)
+                        }
+                        Spacer()
+                        Text(item.dueDate, style: .date)
+                    }
                 }
                 .onMove { indices, newOffset in
                     assignmentItems.move(fromOffsets: indices, toOffset: newOffset)
@@ -22,7 +30,7 @@ struct ContentView: View {
                     assignmentItems.remove(atOffsets: indexSet)
                 }
             }
-            .navigationBarTitle("Assignments", displayMode: .inline)
+            .navigationBarTitle("Assignment Notebook", displayMode: .inline)
             .navigationBarItems(leading: EditButton())
         }
     }
