@@ -11,6 +11,8 @@
 		528A99DF2B6A9D8600F93E66 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528A99DE2B6A9D8600F93E66 /* ContentView.swift */; };
 		528A99E12B6A9D9300F93E66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 528A99E02B6A9D9300F93E66 /* Assets.xcassets */; };
 		528A99E42B6A9D9300F93E66 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 528A99E32B6A9D9300F93E66 /* Preview Assets.xcassets */; };
+		528A99EB2B6BF73E00F93E66 /* AssignmenList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528A99EA2B6BF73E00F93E66 /* AssignmenList.swift */; };
+		528A99ED2B6D42E400F93E66 /* AddAssignmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528A99EC2B6D42E400F93E66 /* AddAssignmentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		528A99DE2B6A9D8600F93E66 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		528A99E02B6A9D9300F93E66 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		528A99E32B6A9D9300F93E66 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		528A99EA2B6BF73E00F93E66 /* AssignmenList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmenList.swift; sourceTree = "<group>"; };
+		528A99EC2B6D42E400F93E66 /* AddAssignmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAssignmentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,8 @@
 			children = (
 				528A99DC2B6A9D8600F93E66 /* Assignment_NotebookApp.swift */,
 				528A99DE2B6A9D8600F93E66 /* ContentView.swift */,
+				528A99EC2B6D42E400F93E66 /* AddAssignmentView.swift */,
+				528A99EA2B6BF73E00F93E66 /* AssignmenList.swift */,
 				528A99E02B6A9D9300F93E66 /* Assets.xcassets */,
 				528A99E22B6A9D9300F93E66 /* Preview Content */,
 			);
@@ -138,7 +144,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				528A99DF2B6A9D8600F93E66 /* ContentView.swift in Sources */,
+				528A99EB2B6BF73E00F93E66 /* AssignmenList.swift in Sources */,
 				528A99DD2B6A9D8600F93E66 /* Assignment_NotebookApp.swift in Sources */,
+				528A99ED2B6D42E400F93E66 /* AddAssignmentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

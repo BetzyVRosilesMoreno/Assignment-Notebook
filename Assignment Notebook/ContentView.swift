@@ -8,14 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var assignmentItems = [AssignmentItem(priority: "High", description: "Take out trash", dueDate: Date()), AssignmentItem(priority: "Medium", description: "Pick up Clothes", dueDate: Date()), AssignmentItem(priority: "Low", description: "Eat a donut", dueDate: Date())]
+    @ObservedObject var assignmentList = AssignmentList()
+    @State private var showingAddAssignmenView = false
     var body: some View {
         NavigationView {
             List {
-                ForEach(assignmentItems) { item in
+                ForEach(assignmentList.items) { item in
                     HStack {
-                        VStack(alignment: .leading) {
-                            Text(item.priority)
+                        VStack {
+                            Text(item.course)
                                 .font(.headline)
                             Text(item.description)
                         }
@@ -23,27 +24,37 @@ struct ContentView: View {
                         Text(item.dueDate, style: .date)
                     }
                 }
-                .onMove { indices, newOffset in
-                    assignmentItems.move(fromOffsets: indices, toOffset: newOffset)
-                }
-                .onDelete { indexSet in
-                    assignmentItems.remove(atOffsets: indexSet)
-                }
+                
+                .onMove (perform: { indices, newOffset in
+                    assignmentList.items.move(fromOffsets: indices, toOffset: newOffset)
+                })
+                .onDelete (perform: { indexSet in
+                    assignmentList.items.remove(atOffsets: indexSet)
+                })
             }
+            .sheet(isPresented: $showingAddAssignmenView, content: {
+                AddAssignmentView(assignmentList: assignmentList)
+            })
             .navigationBarTitle("Assignment Notebook", displayMode: .inline)
-            .navigationBarItems(leading: EditButton())
+            .navigationBarItems(leading: EditButton(),
+                                trailing: Button(action: {
+                                 showingAddAssignmenView = true}) {
+                    Image(systemName: "plus")
+                })
+              }
+           }
+         }
+
+    
+    
+    struct ContentView_Previews: PreviewProvider {
+        static var previews: some View {
+            ContentView()
         }
     }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+    struct AssignmentItem: Identifiable, Codable {
+        var id = UUID()
+        var course = String()
+        var description = String()
+        var dueDate = Date()
     }
-}
-struct AssignmentItem: Identifiable {
-    var id = UUID()
-    var priority = String()
-    var description = String()
-    var dueDate = Date()
-}
